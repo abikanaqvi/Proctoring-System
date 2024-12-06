@@ -1,41 +1,42 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import from react-router-dom
 import logo from './../../assets/logofont.svg';
 import './navbar.css';
 
 const NavLinks = () => (
-	<React.Fragment>
-		<p>
-			<a href="/">Blog</a>
-		</p>
-		<p>
-			<a href="/">Product</a>
-		</p>
-		<p>
-			<a href="/">Community</a>
-		</p>
-		<p>
-			<a href="/">Pricing</a>
-		</p>
-		<p>
-			<a href="/">Contact Us</a>
-		</p>
-		<p>
-			<a href="/login">Login</a>
-		</p>
-	</React.Fragment>
+  <React.Fragment>
+    <p>
+      <Link to="/blog">Blog</Link>
+    </p>
+    <p>
+      <Link to="/product">Product</Link>
+    </p>
+    <p>
+      <Link to="/community">Community</Link>
+    </p>
+    <p>
+      <Link to="/pricing">Pricing</Link>
+    </p>
+    <p>
+      <Link to="/contact">Contact Us</Link>
+    </p>
+    <p>
+      <Link to="/login">Login</Link>
+    </p>
+  </React.Fragment>
 );
 
 const Navbar = () => {
-	return (
-		<div className="landing-navbar">
-			<div className="landing-navbar-logo">
-				<img src={logo} alt="aankh-logo" />
-			</div>
-			<div className="landing-navbar-links">
-				<NavLinks />
-			</div>
-		</div>
-	);
+  return (
+    <div className="landing-navbar">
+      <div className="landing-navbar-logo">
+        <img src={logo} alt="aankh-logo" />
+      </div>
+      <div className="landing-navbar-links">
+        <NavLinks />
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;

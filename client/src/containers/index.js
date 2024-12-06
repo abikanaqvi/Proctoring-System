@@ -5,3 +5,8 @@ export { default as Login } from './login/Login';
 export { default as Register } from './register/Register';
 export { default as Status } from './status/Status';
 export { default as Exam } from './exam/Exam';
+export { default as Blog } from './blog/Blog'; 
+export { default as Product } from './product/Product';      
+export { default as Community } from './community/Community'; 
+export { default as Contact } from './contact/Contact';      
+export { default as Pricing } from './pricing/Pricing';     

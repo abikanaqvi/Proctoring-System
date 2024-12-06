@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pie } from 'react-chartjs-2';
+import { Pie, Doughnut } from 'react-chartjs-2';
 
 const state = {
 	labels: [ 'Terminated', 'Warnings > 4', 'Warnings > 1', 'Continue' ],

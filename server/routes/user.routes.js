@@ -1,5 +1,5 @@
 const express = require('express');
-const { register, signIn, signOut } = require('../controllers/user.control');
+const { register, signIn, signOut } = require('../controllers/user.control.js');
 const router = express.Router();
 const multer = require('multer')
 const shortid = require('shortid')

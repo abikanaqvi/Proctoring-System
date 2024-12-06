@@ -32,9 +32,8 @@ const testSchema = new mongoose.Schema({
     start_time: {
         type: Date,
         required: true,
-        default: Date.now // Use the function reference, not the result of calling it
+        default: Date.now()
     },
-    
     end_time: {
         type: Date,
         required: true,

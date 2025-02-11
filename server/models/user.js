@@ -2,7 +2,12 @@ const mongoose = require('mongoose');
 // const bcrypt = require('bcrypt')
 
 const userSchema = new mongoose.Schema({
-    fullName: {
+    name: String,
+    email: String,
+    password: String
+})
+
+   /* fullName: {
         type: String,
         required: true,
         trim: true,
@@ -33,6 +38,8 @@ const userSchema = new mongoose.Schema({
     status: { type: String, default: "safe" }
 }, { timestamps: true });
 
+*/
+
 // userSchema.virtual('password')
 //     .set(function (password) {
 //         this.hash_password = bcrypt.hashSync(password, 10);
@@ -44,4 +51,5 @@ const userSchema = new mongoose.Schema({
 //     }
 // }
 
-module.exports = mongoose.model('User', userSchema);
+ const EmployeeModel = mongoose.model('User', userSchema)
+ module.exports = EmployeeModel

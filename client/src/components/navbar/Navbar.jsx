@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import from react-router-dom
-import logo from './../../assets/logofont.svg';
+import logo from './../../assets/finalfontlogo.png';
 import './navbar.css';
 
 const NavLinks = () => (
@@ -15,7 +15,7 @@ const NavLinks = () => (
       <Link to="/community">Community</Link>
     </p>
     <p>
-      <Link to="/pricing">Pricing</Link>
+      <Link to="/about">About Us</Link>
     </p>
     <p>
       <Link to="/contact">Contact Us</Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <div className="landing-navbar">
       <div className="landing-navbar-logo">
-        <img src={logo} alt="aankh-logo" />
+        <img src={logo} alt="finalogo" />
       </div>
       <div className="landing-navbar-links">
         <NavLinks />

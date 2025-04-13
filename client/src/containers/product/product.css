@@ -1,0 +1,35 @@
+.product-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-intro, .product-categories, .product-features {
+    margin-bottom: 20px;
+  }
+  
+  .product-intro h1, .product-categories h2, .product-features h2 {
+    color: #333;
+  }
+  
+  .product-categories ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .product-categories li {
+    background: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .product-features p {
+    background: #e8f0fe;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+  }

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './../../assets/logofont.svg';
+import logo from './../../assets/finalogo.png';
 import { CopyLink } from '../../components';
 import './dashboard.css';
 
@@ -7,17 +7,17 @@ const mockTests = [
 	{
 		name: 'Periodic Test - DBMS',
 		link: 'asd-qwvs-dfs',
-		time: '20/01/2022 17:30'
+		time: '20/03/2025 17:30'
 	},
 	{
 		name: 'Periodic Test - OSLT',
 		link: 'pbl-dfse-phd',
-		time: '21/01/2022 17:30'
+		time: '21/03/2025 17:30'
 	},
 	{
 		name: 'Periodic Test - SPCC',
 		link: 'fhh-dfgg-aee',
-		time: '22/01/2022 17:30'
+		time: '22/03/2025 17:30'
 	}
 ];
 
@@ -25,7 +25,7 @@ const Dashboard = () => {
 	return (
 		<div className="section-type admin-dashboard">
 			<div className="logo">
-				<img src={logo} alt="aankh-logo" />
+				<img src={logo} alt="HawkEye-logo" />
 			</div>
 
 			<h1 className="title-heading">Admin Dashbaord</h1>

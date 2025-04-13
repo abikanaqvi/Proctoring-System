@@ -4,11 +4,11 @@ import devtools from './../../../node_modules/devtools-detect/index.js';
 import './exam.css';
 
 const Exam = ({
-	examName = 'Periodic Test - DBMS: 20th January, 2022',
-	studentID = '1902112',
-	studentEmail = 'tusharnankani3@gmail.com',
+	examName = 'Testing - HawkEye',
+	studentID = '2105080100003',
+	studentEmail = 'abikanaqvi@gmail.com',
 	duration = 60,
-	formLink = 'https://docs.google.com/forms/d/e/1FAIpQLScGieRkiR-718h3RwfOmLBRxLd8c8rySsYB8L4yE00rZc95CA/viewform'
+	formLink = 'https://forms.gle/MwD1TNvmLwsuAAWV6'
 }) => {
 	function captureCheck() {
 		// defualt hidden

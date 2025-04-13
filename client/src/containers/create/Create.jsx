@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from './../../assets/logofont.svg';
+import logo from './../../assets/finalogo.png';
 import { CommonInput, CtaButton } from '../../components';
 import './create.css';
 
@@ -39,7 +39,7 @@ const Create = () => {
   return (
     <div className="client-create">
       <div className="logo">
-        <img src={logo} alt="aankh-logo" />
+        <img src={logo} alt="HawkEye-logo" />
       </div>
       <div className="create-form">
         <h1 className="title-heading">Create a test</h1>

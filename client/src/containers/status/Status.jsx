@@ -1,40 +1,40 @@
 import React from 'react';
-import logo from './../../assets/logofont.svg';
+import logo from './../../assets/finalogo.png';
 import { CopyLink, Terminated, PieChart } from '../../components';
 import './status.css';
 
 const mockList = [
 	{
-		studentID: '1902112',
+		studentID: '210508010003',
 		warningCnt: 5,
 		message: 'DevTools detected'
 	},
 	{
-		studentID: '1902141',
+		studentID: '210508010040',
 		warningCnt: 4,
 		message: 'Noise detected'
 	},
 	{
-		studentID: '1902114',
+		studentID: '2105080100054',
 		warningCnt: 6,
 		message: 'Face covered'
 	},
 	{
-		studentID: '1902154',
+		studentID: '2105080100063',
 		warningCnt: 2,
 		message: 'Full Screen Closed'
 	}
 ];
 
 const Status = ({
-	time = '20/01/2022 17:30',
-	name = 'Periodic Test - DBMS',
+	time = '20/03/2025 17:30',
+	name = 'Testing',
 	link = 'asd-qwvs-dfs'
 }) => {
 	return (
 		<div className="status-dashboard">
 			<div className="logo">
-				<img src={logo} alt="aankh-logo" />
+				<img src={logo} alt="HawkEye-logo" />
 			</div>
 
 			<h1 className="title-heading">Test Dashboard</h1>

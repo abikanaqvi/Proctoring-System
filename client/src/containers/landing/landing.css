@@ -1,168 +1,180 @@
+:root {
+    --color-heading: #2c3e50; /* Dark blue for headings */
+    --color-text: #34495e; /* Darker grey for text */
+    --color-cta: #a1f3c3; /* Green for CTA buttons */
+    --color-cta-hover: #85bc9d; /* Darker green for hover effect */
+    --color-background: #449ecb; /* Light background color */
+    --color-feature: #ecf0f1; /* Light grey for features section */
+    --color-gradient-start: #e74c3c; /* Gradient start color */
+    --color-gradient-end: #3498db; /* Gradient end color */
+}
+
+body {
+    background-color: var(--color-background);
+    color: #845e5e; /* Default text color */
+}
+/* landing.css */
+
+/* Style for the right-side image */
+.right-image-container {
+    position: absolute; /* Fixes the image to the screen */
+    top: 50%;         /* Centers the image vertically */
+    right: 0;         /* Aligns the image to the right edge */
+    transform: translateY(-50%); /* Adjusts for perfect vertical center */
+    z-index: 10;      /* Ensures the image appears above other content */
+  }
+  
+  .right-image {
+    width: 450px;     /* Adjust the image size */
+    height: 290px;     /* Maintains aspect ratio */
+   
+  }
+  
+
 .landing-page {
-	font-family: var(--font-family);
-	padding: 6rem 1rem;
+    font-family: var(--font-family);
+    padding: 6rem 1rem;
 }
 
 .landing-content {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
-	max-width: 45rem;
-	gap: 2rem;
-	margin: 5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 45rem;
+    gap: 2rem;
+    margin: 5rem 0 0;
 }
 
 .landing-content .headings {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .landing-content .headings .sub-text {
-	font-weight: 600;
-	font-size: 3.6rem;
-	letter-spacing: -2px;
-	color: var(--color-heading);
+    font-weight: 600;
+    font-size: 3.6rem;
+    letter-spacing: -2px;
+    color: var(--color-heading);
 }
 
 .landing-content .headings .main-heading {
-	font-weight: 700;
-	font-size: 3.8rem;
-	letter-spacing: -2px;
+    font-weight: 700;
+    font-size: 3.8rem;
+    color: var(--color-gradient-start); /* Gradient color */
+    background: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .landing-content .desc {
-	color: var(--color-text);
-	font-size: 1.4rem;
+    color: var(--color-text);
+    font-size: 1.4rem;
 }
 
 .landing-cta {
-	margin: 4rem 0 8rem;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	gap: 3rem;
+    margin: 4rem 0 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3rem;
 }
 
 .landing-cta .input-item {
-	max-width: 35rem;
-	min-width: 30rem;
-	display: flex;
-	align-items: center;
-	gap: 2rem;
+    max-width: 35rem;
+    min-width: 30rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 .landing-cta .desc {
-	color: var(--color-text);
-	font-weight: 600;
-	font-size: 1rem;
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 /* LANDING SECTION - 2 */
 
 .features-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-	padding: 4rem 2rem;
-	height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 4rem 2rem;
+    height: 100vh;
+    background-color: var(--color-feature); /* Light grey background for features */
 }
 
 .features-content .curr-heading {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
 }
 
 .features-content p {
-	font-size: 2rem;
+    font-size: 2rem;
 }
 
 .features-content h2 {
-	font-size: 3rem;
+    font-size: 3rem;
 }
 
 .features-content .all-features {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 4rem 8rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem 8rem;
 }
 
 .features-content .all-features .single-feature {
-	font-size: 1.25rem;
-	text-align: center;
+    font-size: 1.25rem;
+    text-align: center;
+    color: var(--color-heading); /* Dark blue for feature text */
 }
 
 .mid-cta .phew {
-	font-size: 1rem;
-	text-align: center;
-	color: var(--color-text);
+    font-size: 1rem;
+    text-align: center;
+    color: var(--color-text);
 }
 
 .features-content .mid-cta,
 .final-features .mid-cta {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-	gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
 }
 
 /* LANDING SECTION - 3 */
 
 .final-features {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin: 6rem 0;
+    display: flex;
+    flex-direction: column;
+ align-items: center;
+    justify-content: center;
+    margin: 6rem 0;
 }
 
 .final-features .top-sec {
-	display: grid;
-	align-items: center;
-	justify-content: center;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 4rem;
-	margin: 2rem;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4rem;
+    margin: 2rem;
 }
 
 .final-features .top-sec .left-text,
 .final-features .top-sec .right-text {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .final-features .top-sec .right-text {
-	text-align: right;
-}
-
-.final-features .top-sec .left-text h3,
-.final-features .top-sec .right-text h3 {
-	font-weight: 500;
-	font-size: 1.7rem;
-}
-
-.final-features .top-sec .left-text h1,
-.final-features .top-sec .right-text h1 {
-	font-weight: 600;
-	font-size: 2.5rem;
-}
-
-.final-features .top-sec .infinite {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.final-features .top-sec .infinite img {
-	width: 12rem;
-}
-
-.final-features .final-cta {
-	margin: 5rem;
+    text-align: right;
 }

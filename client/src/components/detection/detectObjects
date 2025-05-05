@@ -1,0 +1,20 @@
+export const detectPhoneOrMultiplePeople = async (video, model) => {
+  if (!video || !model) return { phoneDetected: false, multiplePeople: false };
+
+  try {
+    const predictions = await model.detect(video);
+
+    const phoneDetected = predictions.some(pred =>
+      pred.class.toLowerCase().includes('cell phone') || pred.class.toLowerCase().includes('phone')
+    );
+
+    const personCount = predictions.filter(pred => pred.class === 'person').length;
+    const multiplePeople = personCount > 1;
+
+    return { phoneDetected, multiplePeople };
+  } catch (error) {
+    console.error('Detection error:', error);
+    return { phoneDetected: false, multiplePeople: false };
+  }
+};
+

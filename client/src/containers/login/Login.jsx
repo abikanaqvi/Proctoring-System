@@ -28,7 +28,7 @@ function Login() {
             if (response?.token) {  
                 localStorage.setItem("token", response.token);
                 
-                // ✅ Redirect to Landing Page after login
+                
                 navigate("/landing", { replace: true });
             } else {
                 setError(response?.error || "Invalid credentials.");

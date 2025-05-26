@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Ensure environment variable is set correctly
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "https://hawkeye-gbqy.onrender.com";
 
 const API = axios.create({
     baseURL: BACKEND_URL,
@@ -15,14 +15,14 @@ export const commonRequest = async (method, url, data = null) => {
             method,
             url,
             data, 
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json" },
         };
 
         const response = await API(config);
         return response.data;
     } catch (error) {
         console.error("API Error:", error.response?.data || error.message);
-        
+
         // Return error response instead of throwing, to avoid app crashes
         return error.response?.data || { error: "API request failed" };
     }

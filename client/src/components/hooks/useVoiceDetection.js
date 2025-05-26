@@ -1,4 +1,4 @@
-
+// hooks/useVoiceDetection.js
 import { useEffect, useRef } from 'react';
 
 const useVoiceDetection = (onSoundDetected, threshold = 0.1) => {
@@ -12,19 +12,25 @@ const useVoiceDetection = (onSoundDetected, threshold = 0.1) => {
     const startListening = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
-        analyserRef.current = audioContextRef.current.createAnalyser();
-        sourceRef.current = audioContextRef.current.createMediaStreamSource(stream);
-        sourceRef.current.connect(analyserRef.current);
-        analyserRef.current.fftSize = 256;
 
-        const bufferLength = analyserRef.current.frequencyBinCount;
-        dataArrayRef.current = new Uint8Array(bufferLength);
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        audioContextRef.current = audioContext;
+
+        const analyser = audioContext.createAnalyser();
+        analyser.fftSize = 256;
+        analyserRef.current = analyser;
+
+        const source = audioContext.createMediaStreamSource(stream);
+        source.connect(analyser);
+        sourceRef.current = source;
+
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+        dataArrayRef.current = dataArray;
 
         const checkVolume = () => {
-          analyserRef.current.getByteFrequencyData(dataArrayRef.current);
-          const volume =
-            dataArrayRef.current.reduce((sum, val) => sum + val, 0) / bufferLength / 255;
+          analyser.getByteFrequencyData(dataArray);
+          const volume = dataArray.reduce((sum, val) => sum + val, 0) / bufferLength / 255;
 
           if (volume > threshold) {
             onSoundDetected();
@@ -42,10 +48,22 @@ const useVoiceDetection = (onSoundDetected, threshold = 0.1) => {
     startListening();
 
     return () => {
-      if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
-      if (audioContextRef.current) audioContextRef.current.close();
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
+
+      if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
+        audioContextRef.current.close().catch((err) => {
+          console.warn('AudioContext close error:', err);
+        });
+      }
+
+      if (sourceRef.current?.mediaStream) {
+        sourceRef.current.mediaStream.getTracks().forEach((track) => track.stop());
+      }
     };
   }, [onSoundDetected, threshold]);
 };
 
 export default useVoiceDetection;
+

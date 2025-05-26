@@ -1,24 +1,50 @@
-import React from 'react';
-import './terminated.css';
+import React, { useState } from 'react';
+import WebLiveCapture from '../weblivecapture/WebLiveCapture';
+import Terminated from './Terminated';
 
-const Terminated = ({
-	studentID = '1902112',
-	warningCnt = '4',
-	message = 'Multiple People Detected'
-}) => {
-	return (
-		<div className="terminated">
-			<div className="terminated-details">
-				<h4 className="student-id">ID: {studentID}</h4>
-				<h4 className="warning-cnt">Warnings: {warningCnt}</h4>
-				<h4 className="message">Message: {message}</h4>
-			</div>
-			<div className="btns">
-				<button className="terminate-btn">Terminate</button>
-				<button className="continue-btn">Continue</button>
-			</div>
-		</div>
-	);
+const ProctoringMain = () => {
+  const [showTerminated, setShowTerminated] = useState(false);
+  const [warningCnt, setWarningCnt] = useState(0);
+
+  const handlePhoneDetected = () => {
+    setWarningCnt((prev) => prev + 1);
+    setShowTerminated(true);
+  };
+
+  const handleTabSwitch = () => {
+    setWarningCnt((prev) => prev + 1);
+    setShowTerminated(true);
+  };
+
+  const handleTerminate = () => {
+    alert('Exam session terminated.');
+    // Redirect or disable exam logic here
+  };
+
+  const handleContinue = () => {
+    setShowTerminated(false);
+    // Resume exam logic here
+  };
+
+  return (
+    <div>
+      {!showTerminated ? (
+        <WebLiveCapture
+          onPhoneDetected={handlePhoneDetected}
+          onTabSwitch={handleTabSwitch}
+        />
+      ) : (
+        <Terminated
+          studentID="1902112"
+          warningCnt={warningCnt}
+          message="Phone Detected"
+          onTerminate={handleTerminate}
+          onContinue={handleContinue}
+        />
+      )}
+    </div>
+  );
 };
 
-export default Terminated;
+export default ProctoringMain;
+

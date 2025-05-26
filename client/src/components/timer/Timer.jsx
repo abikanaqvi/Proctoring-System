@@ -1,38 +1,50 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import WebLiveCapture from '../weblivecapture/WebLiveCapture';
+import Terminated from './Terminated';
 
-const Timer = ({ initialMinute = 1, initialSeconds = 0 }) => {
-	const [ minutes, setMinutes ] = useState(initialMinute);
-	const [ seconds, setSeconds ] = useState(initialSeconds);
-	useEffect(() => {
-		let myInterval = setInterval(() => {
-			if (seconds > 0) {
-				setSeconds(seconds - 1);
-			}
-			if (seconds === 0) {
-				if (minutes === 0) {
-					clearInterval(myInterval);
-				} else {
-					setMinutes(minutes - 1);
-					setSeconds(59);
-				}
-			}
-		}, 1000);
-		return () => {
-			clearInterval(myInterval);
-		};
-	});
+const ProctoringMain = () => {
+  const [showTerminated, setShowTerminated] = useState(false);
+  const [warningCnt, setWarningCnt] = useState(0);
 
-	return (
-		<React.Fragment>
-			{minutes === 0 && seconds === 0 ? null : (
-				<h2 className="title-heading">
-					{' '}
-					{minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-				</h2>
-			)}
-		</React.Fragment>
-	);
+  const handlePhoneDetected = () => {
+    setWarningCnt((prev) => prev + 1);
+    setShowTerminated(true);
+  };
+
+  const handleTabSwitch = () => {
+    setWarningCnt((prev) => prev + 1);
+    setShowTerminated(true);
+  };
+
+  const handleTerminate = () => {
+    alert('Exam session terminated.');
+    // Redirect or disable exam logic here
+  };
+
+  const handleContinue = () => {
+    setShowTerminated(false);
+    // Resume exam logic here
+  };
+
+  return (
+    <div>
+      {!showTerminated ? (
+        <WebLiveCapture
+          onPhoneDetected={handlePhoneDetected}
+          onTabSwitch={handleTabSwitch}
+        />
+      ) : (
+        <Terminated
+          studentID="1902112"
+          warningCnt={warningCnt}
+          message="Phone Detected"
+          onTerminate={handleTerminate}
+          onContinue={handleContinue}
+        />
+      )}
+    </div>
+  );
 };
 
-export default Timer;
+export default ProctoringMain;
+
